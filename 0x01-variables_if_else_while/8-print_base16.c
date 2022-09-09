@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include <stdlib.h>
+
 /**
  * main - main block
  * Description: prints all single digit numbers of base 10
@@ -12,18 +14,25 @@
 int main(void)
 
 {
-int c = 0;
 
-while (c < 10)
+char d = '0';
 
-					{
-putchar(48 + c);
+while (d <= '9')
 
+{
+
+putchar(d);
+d++;
+}
+
+char c = 'a';
+
+while (c <= 'f')
+
+{
+putchar(c);
 c++;
-
 }
 putchar('\n');
-
 return (0);
-
 }
