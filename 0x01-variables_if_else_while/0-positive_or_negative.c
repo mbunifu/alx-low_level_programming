@@ -3,7 +3,6 @@
 #include <time.h>
 
 /**
- *
  * main - main block
  *
  * Description: Get a random number and print the number
@@ -14,7 +13,6 @@
  *
  */
 int main(void)
-
 {
 int n;
 
