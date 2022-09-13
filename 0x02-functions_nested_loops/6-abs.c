@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * abs - computes the absolute value of an integer
+ * _abs - computes the absolute value of an integer
  * Return: (0) success
  * @a: number being tested
  */
-int _abs (int a)
+int _abs(int a)
 {
-	if ( a < 0 )
+	if (a < 0)
 		return (-a);
 	else
 		return (a);
