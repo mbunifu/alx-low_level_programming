@@ -2,7 +2,6 @@
 
 /**
  * rev_string - reverses a string
- * str_len - calculates length of the string
  * @s: string being reversed
  */
 
@@ -11,7 +10,7 @@ void rev_string(char *s)
 	int a, c;
 	char *begin, *end, temp;
 
-	a = _strlen(s);
+	a = _str_len(s);
 	begin = end = s;
 
 	for (c = 0; c < a - 1; c++)
