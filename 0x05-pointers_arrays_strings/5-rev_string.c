@@ -2,24 +2,42 @@
 
 /**
  * rev_string - reverses a string
+ * str_len - calculates length of the string
  * @s: string being reversed
  */
 
 void rev_string(char *s)
 {
-	int a, b, c, d;
+	int a, c;
+	char *begin, *end, temp;
 
-	while (s[a] != '\0')
-		a++;
-	b = 0;
-	c = a - 1;
+	a = str_len(s);
+	begin = end = s;
 
-	while (b < c)
+	for (c = 0; c < length - 1; c++)
+		end++;
+	for (c = 0; c < length / 2; c++)
 	{
-		d = s[b];
-		s[b] = s[c];
-		s[c] = d;
-		b++;
-		c--;
+		temp = *end;
+		*end = *begin;
+		*begin = temp;
+
+		begin++;
+		end--
 	}
+}
+
+/**
+ * str_len - calculates length of a string
+ * @pointer: points to the address of the string
+ * Return: Always 0.
+ */
+
+int str_len(char *pointer)
+{
+	int c = 0;
+
+	while (*(pointer + c) != '\0')
+		c++;
+	return (c);
 }
