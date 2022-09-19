@@ -10,7 +10,7 @@ void rev_string(char *s)
 	int a, c;
 	char *begin, *end, temp;
 
-	a = _str_len(s);
+	a = str_len(s);
 	begin = end = s;
 
 	for (c = 0; c < a - 1; c++)
