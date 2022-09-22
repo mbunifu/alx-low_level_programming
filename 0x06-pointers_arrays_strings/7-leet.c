@@ -6,22 +6,20 @@
  * Return: encoded string
  */
 
-char *leet(char *s)
+char *leet(char *t)
 {
-	int a;
-	int b;
-	char *array_a = "aAeEoOtTlL";
-	char *array_b = "4433007711";
+	int a = 0, num[5] = {4, 3, 0, 1, 7}, y = 0;
+	char array[10] = "AaEeOoLlTt";
 
-	for (a = 0; s[a] != '\0'; a++)
+	for (; t[a]; a++)
 	{
-		b = 0;
-		while (b < 10)
+		for (y = 0; (t[a] != array[y] && y < 10); y++)
+			;
+		if (t[a] == array[y])
 		{
-			if (s[a] == array_a[b])
-				s[a] = array_a[b];
-			b++;
+			y /= 2;
+			t[a] = (num[y] + '0');
 		}
 	}
-	return (s);
+	return (t);
 }
