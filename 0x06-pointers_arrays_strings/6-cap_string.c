@@ -8,29 +8,28 @@
 
 char *cap_string(char *s)
 {
-	int a = 0;
-	int b;
-	int c = 0;
+	char *sep = " \t\n,;.!?\"(){}";
+	int a = 0, b = 0, c = 1, d = 0;
 
-	while (s[a])
+	for (; s[a]; a++)
 	{
-		c++;
-		a++;
-	}
-	for (a = 0; a < c; a++)
-	{
-		if (s[a] > 96 && s[a] < 123)
+		for (; b < a; b++)
 		{
-			b = s[a - 1];
-			if (a == 0 || b == '\n' || b == '\t' || b == 32 || b == 33 || b == 34)
+			if (s[b] >= 'A' && s[b] <= 'Z')
+				c = 0;
+			if ((s[b] >= 'a' && s[b] <= 'z') && c == 1)
 			{
-				s[a] = s[a] - 32;
+				s[b] = ((s[b] - 'a') + 'A');
+				c = 0;
 			}
-			else if (b == 40 || b == 41 || b == 44 || b == 46)
-				s[a] = s[a] - 32;
-			else if (b == 59 || b == 63 || b == 123 || b == 125)
-				s[a] = s[a] - 32;
+			for (d = 0; sep[d]; d++)
+				if (s[b] == sep[d])
+				{
+					c = 1;
+					if (!(s[b + 1] <= 'z' && s[b + 1] >= 'a'))
+						c = 0;
+				}
 		}
-		return (s);
 	}
+	return (s);
 }
