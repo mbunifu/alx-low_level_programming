@@ -2,7 +2,7 @@
 
 /**
  * leet - function that encodes a string into 1337
- * @s: function param
+ * @t: function param
  * Return: encoded string
  */
 
