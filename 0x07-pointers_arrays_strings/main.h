@@ -12,6 +12,5 @@ char *_strstr(char *haystack, char *needle);
 void print_chessboard(char (*a)[8]);
 int _putchar(char c);
 void set_string(char **s, char *to);
-int coincidence(char *a, char *b)
-
+int coincidence(char *a, char *b);
 #endif /* MAin_H_ */
