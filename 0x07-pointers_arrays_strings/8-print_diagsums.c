@@ -23,5 +23,5 @@ void print_diagsums(int *a, int size)
 	{
 		rSum += a[x];
 	}
-	printf("%d, %d\n", leftSum, rightSum);
+	printf("%d, %d\n", lSum, rSum);
 }
