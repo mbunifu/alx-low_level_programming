@@ -10,34 +10,27 @@
 
 char *_strstr(char *haystack, char *needle)
 {
+	int x;
+
+	if (needle == NULL)
+	{
+		return (haystack);
+	}
 	while (*haystack)
 	{
-		if ((*haystack == *needle && coincidence(haystack, needle) == 1) || !*needle)
+		x = 0;
+		if (haystack[x] == needle[x])
 		{
-			return (haystack);
+			do {
+				if (needle[x + 1] != '\0')
+				{
+					x++;
+				}
+				else
+					return (haystack);
+			} while (haystack[x] == needle[x]);
 		}
-		else
-		{
-			haystack++;
-		}
+		haystack++;
 	}
-	return (0);
-}
-/**
- * coincidence - define if the string b is inside a.
- * @a: source string
- * @b: string to be searched
- * Return: 1 if there is coincidence, otherwise 0.
- */
-int coincidence(char *a, char *b)
-{
-	while (*b && *b == *a)
-	{
-		b++;
-		a++;
-	}
-	if (*b == '\0')
-		return (1);
-	else
-		return (0);
+	return (NULL);
 }
