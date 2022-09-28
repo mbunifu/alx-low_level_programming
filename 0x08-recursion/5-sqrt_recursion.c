@@ -15,7 +15,7 @@ int _sqrt_recursion(int n)
 }
 
 /**
- * validate_sqr - function entry point
+ * validate_sqrt - function entry point
  * @a: function param
  * @b: function param
  * Desc: checks if sqr of x == y
