@@ -2,6 +2,8 @@
 #define MAIN_H
 
 int _putchar(char c);
+int validate_sqrt(int a, int b);
+int find_prime(int x, int y);
 void _puts_recursion(char *s);
 void _print_rev_recursion(char *s);
 int _strlen_recursion(char *s);
