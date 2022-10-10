@@ -6,9 +6,10 @@
  * @name: first member
  * @age: second member
  * @owner: third member
+ * Desc: struct data type for object dog
  */
 
-struct dog 
+struct dog
 {
 	char *name;
 	float age;
