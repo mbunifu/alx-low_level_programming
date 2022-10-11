@@ -65,6 +65,7 @@ int _strlen(char *s)
 }
 /**
  * _strcpy - Copy a string
+ * @src: Source value
  * @dest: Destination value
  *
  * Return: the pointer to dest
