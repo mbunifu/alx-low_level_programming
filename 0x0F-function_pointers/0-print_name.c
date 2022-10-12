@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "functon_ponters.h"
+#include "function_ponters.h"
 
 /**
  * print_name - prints a name as is
