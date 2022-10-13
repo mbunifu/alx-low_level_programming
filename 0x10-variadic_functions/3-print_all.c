@@ -4,83 +4,50 @@
 #include <stdlib.h>
 
 /**
- * print_char - Prints a character from an arguments list
- * @args: The arguments list
- */
-
-void print_char(va_list *args)
-{
-	printf("%c", va_arg(*args, int));
-}
-
-/**
- * print_integer - Prints an integer from an arguments list
- * @args: The arguments list
- */
-void print_integer(va_list *args)
-{
-	printf("%f", va_arg(*args, double));
-}
-
-/**
- * print_float - Prints a float from an arguments list
- * @args: The arguments list
- */
-
-void print_float(va_list *args)
-{
-	printf("%f", va_arg(*args, double));
-}
-
-/**
- * print_string - Prints a character array from an arguments list
- *  @args: The arguments list
- */
-
-void print_string(va_list *args)
-{
-	char *str = va_arg(*args, char *);
-
-	if (!str)
-		str = "(nil)";
-	printf("%s", str);
-}
-
-/**
- * print_all - prints anything
- * @format: list of types of arguments passed to the function
- * Return: void
+ * print_all - Entry Point
+ * c = char, i = int, f = float, s = char * (if null print (nil))
+ * @format: list of arg types
+ * Return: 0
  */
 
 void print_all(const char * const format, ...)
 {
-	va_list ap;
-	const char *form = format;
-	char *sep = "";
-	int i = 0, j;
-	fh formaters[] = {
-		{'c', print_char},
-		{'i', print_integer},
-		{'f', print_float},
-		{'s', print_string}
-	};
-	va_start(ap, format);
-	while (form && form[i] != '\0')
+	va_list valist;
+	int n = 0, i = 0;
+	char *sep = ", ";
+	char *str;
+
+	va_start(valist, format);
+
+	while (format && format[i])
+		i++;
+
+	while (format && format[n])
 	{
-		j = 0;
-		while (j < 4)
+		if (n  == (i - 1))
 		{
-			if (form[i] == (formaters + j)->format)
-			{
-				printf("%s", sep);
-				(formaters + j)->printer(&ap);
-				sep = ", ";
-				break;
-			}
-			j++
+			sep = "";
 		}
-		i++
+		switch (format[n])
+		{
+			case 'c':
+				printf("%c%s", va_arg(valist, int), sep);
+				break;
+			case 'i':
+				printf("%d%s", va_arg(valist, int), sep);
+				break;
+			case 'f':
+				printf("%f%s", va_arg(valist, double), sep);
+				break;
+			case 's':
+				str = va_arg(valist, char *);
+				if (str == NULL)
+					str = "(nil)";
+				printf("%s%s", str, sep);
+				break;
+		}
+		n++;
 	}
 	printf("\n");
-	va_end(ap);
+	va_end(valist);
 }
