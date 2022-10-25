@@ -5,7 +5,7 @@
  * listint_len - Find the length of a list
  * @h: The pointer to the start of the list
  *
- * eturn: Number of nodes in the list
+ * Return: Number of nodes in the list
  */
 
 size_t listint_len(const listint_t *h)
